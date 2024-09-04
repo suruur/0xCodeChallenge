@@ -56,17 +56,22 @@ export default {
             async fetchBook(){
               try{
                     const response = await axios.get(`http://localhost:8000/api/books/${this.$route.params.id}/`)
-                    const book = response.data
-                    this.book = book
+                    if (response.status === 200) {
+                          console.log('Success:', response.data);
+                          
+                          const book = response.data
+                          this.book = book
             
+                      }
+                    
               }catch(error)
               {
-                if(error.response)
-                    this.msg = error.response.data
-                else if (error.request)
-                    this.msg = `No response received: ${error.request}`
+                if(error.response.status === 404)
+                    this.msg = "Book not Fount1"
+                else if (error.response.status === 500)
+                    this.msg = "Inernal Server Error"
                 else
-                    this.msg = `Error: ${error.message}`
+                    this.msg = `Unexpected error: ${error.response.data}`
               }
                 
               },
