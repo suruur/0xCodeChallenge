@@ -1,0 +1,13 @@
+Frontend: Vue.js
+Reactive Data Binding: Vue.js allows for reactive data binding, which ensures that the UI remains updated with the application's data without additional coding.
+Backend API: Django REST Framework (DRF)
+DRF integrates seamlessly with Django
+
+DRF makes it easy to handle serialization and validation of data with its built-in serializers, reducing the amount of boilerplate code needed.
+Database Interaction: PyMongo with MongoDB
+I used PyMongo which is a Python driver for MongoDB that provides a simple and intuitive API for interacting with MongoDB from a Python application.
+The application follows a client-server architecture:
+
+Frontend (Vue.js): The Vue.js application will consume the REST API provided by DRF to perform CRUD operations on the books collection.
+Backend (DRF): The DRF backend will act as a mediator between the frontend and the database, exposing CRUD endpoints.
+Database (MongoDB with PyMongo): MongoDB will store the book records, and PyMongo will be used within the DRF views to perform the necessary database operations.
